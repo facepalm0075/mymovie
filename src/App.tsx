@@ -33,7 +33,7 @@ function App() {
           <div className="page-root" ref={pageRef}>
             <Routes>
               <Route
-                path="/"
+                path="/mymovie"
                 element={
                   <Home
                     shandler={sHandler}
