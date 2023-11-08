@@ -85,7 +85,6 @@ function Home({ search, scrollHandel, shandler }: searchprop) {
     setTimeout(() => {
       shandler("");
     }, 1000);
-    console.log("fsdfsdf");
   }, []);
 
   return (

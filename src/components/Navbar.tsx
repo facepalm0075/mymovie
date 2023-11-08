@@ -26,14 +26,14 @@ export default function Navbar({ searchHandler }: searchprop) {
       <div className="nav-main-div">
         <div className="sec-div" style={{ margin: "0px 40px" }}>
           <span>
-            <Link to={"/"}>Home</Link>
+            <Link to={"/mymovie"}>Home</Link>
           </span>
         </div>
         <div>
           <div className="input-group rounded">
             <Routes>
               <Route
-                path="/"
+                path="/mymovie"
                 element={
                   <input
                     type="search"

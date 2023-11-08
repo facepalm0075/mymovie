@@ -275,8 +275,8 @@ nav{
     height: 500px;
     border-radius: 6px;
     animation-name: mySlide;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.09, 0.24, 0, 1.04);
     animation-fill-mode: forwards
   }
 
@@ -288,7 +288,7 @@ nav{
   .p-i-b{
     background-color: rgba(0, 0, 0, 0.42);
     border-radius: 6px;
-    backdrop-filter: blur(1.3px);
+    backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(2.3px);
     height: 100%;
     color: white;
