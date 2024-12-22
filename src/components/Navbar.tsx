@@ -1,94 +1,89 @@
-//import avatar from "../assets/avatar.jpg";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Thememode from "./Thememode";
 import { useDebounce } from "use-debounce";
 import { useState, useEffect } from "react";
 
 type searchprop = {
-  searchHandler: (s: string) => void;
+	searchHandler: (s: string) => void;
 };
 
 export default function Navbar({ searchHandler }: searchprop) {
-  const [inputValue, setInputValue] = useState("");
-  const [debouncedValue] = useDebounce(inputValue, 800);
+	const [inputValue, setInputValue] = useState("");
+	const [debouncedValue] = useDebounce(inputValue, 800);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setInputValue(value);
-  };
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value;
+		setInputValue(value);
+	};
 
-  useEffect(() => {
-    searchHandler(debouncedValue);
-  }, [debouncedValue]);
-  return (
-    <nav>
-      <Thememode />
-      <div className="nav-main-div">
-        <div className="sec-div" style={{ margin: "0px 40px" }}>
-          <span>
-            <Link to={"/mymovie"}>Home</Link>
-          </span>
-        </div>
-        <div>
-          <div className="input-group rounded">
-            <Routes>
-              <Route
-                path="/mymovie"
-                element={
-                  <input
-                    type="search"
-                    className="search-input"
-                    placeholder="Search..."
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                    onChange={(e) => {
-                      handleInputChange(e);
-                    }}
-                  />
-                }
-              />
+	useEffect(() => {
+		searchHandler(debouncedValue);
+	}, [debouncedValue]);
+	return (
+		<nav className="justify-end pr-4 sm:justify-center sm:pr-0">
+			<Thememode />
+			<div className="nav-main-div">
+				<div className="sec-div" style={{ margin: "0px 10px" }}></div>
+				<div>
+					<div className="input-group rounded">
+						<Routes>
+							<Route
+								path="/mymovie"
+								element={
+									<input
+										type="search"
+										className="search-input"
+										placeholder="Search..."
+										aria-label="Search"
+										aria-describedby="search-addon"
+										onChange={(e) => {
+											handleInputChange(e);
+										}}
+									/>
+								}
+							/>
 
-              <Route path="/Categories">
-                <Route
-                  path=":id"
-                  element={
-                    <input
-                      type="search"
-                      className="search-input"
-                      placeholder="Search..."
-                      aria-label="Search"
-                      aria-describedby="search-addon"
-                      onChange={(e) => {
-                        handleInputChange(e);
-                      }}
-                    />
-                  }
-                />
-              </Route>
+							<Route path="/Categories">
+								<Route
+									path=":id"
+									element={
+										<input
+											type="search"
+											className="search-input"
+											placeholder="Search..."
+											aria-label="Search"
+											aria-describedby="search-addon"
+											onChange={(e) => {
+												handleInputChange(e);
+											}}
+										/>
+									}
+								/>
+							</Route>
 
-              <Route path="/Genres">
-                <Route
-                  path=":id"
-                  element={
-                    <input
-                      type="search"
-                      className="search-input"
-                      placeholder="Search..."
-                      aria-label="Search"
-                      aria-describedby="search-addon"
-                      onChange={(e) => {
-                        handleInputChange(e);
-                      }}
-                    />
-                  }
-                />
-              </Route>
-            </Routes>
-          </div>
-        </div>
-      </div>
-      <div className="nav-div-fixer"></div>
-      {/* <div
+							<Route path="/Genres">
+								<Route
+									path=":id"
+									element={
+										<input
+											type="search"
+											className="search-input"
+											placeholder="Search..."
+											aria-label="Search"
+											aria-describedby="search-addon"
+											onChange={(e) => {
+												handleInputChange(e);
+											}}
+										/>
+									}
+								/>
+							</Route>
+						</Routes>
+					</div>
+				</div>
+			</div>
+			<div className="nav-div-fixer"></div>
+			{/* <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -110,6 +105,6 @@ export default function Navbar({ searchHandler }: searchprop) {
         />
         <span>Login/Sign</span>
       </div> */}
-    </nav>
-  );
+		</nav>
+	);
 }
