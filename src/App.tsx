@@ -24,12 +24,17 @@ function App() {
 
 	return (
 		<>
-			<div className="main-root">				
-					<Sidebar />
+			<div className="main-root">
+				<Sidebar />
 				<div className="content-root">
 					<Navbar searchHandler={sHandler} />
 					<div className="page-root" ref={pageRef}>
 						<Routes>
+							<Route
+								path="/"
+								element={<Home shandler={sHandler} scrollHandel={scrollHandler} search={search} />}
+							/>
+
 							<Route
 								path="/mymovie"
 								element={<Home shandler={sHandler} scrollHandel={scrollHandler} search={search} />}
